@@ -33,6 +33,7 @@ app.post("/kidneycheckup", userMiddleware, kidneyValitator, (req, res) => {
     .json({ msg: `Health checkup successful for ${kidneyLenght} kidneys` });
 });
 app.use((req, next, res, err) => {
+  console.log(err);
   res.status(500).json({ msg: "Internal Server Error" });
 });
 app.listen(port, () => {
